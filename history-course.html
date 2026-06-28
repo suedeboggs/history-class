@@ -1,0 +1,2189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Long Arc — A Personal History of the World</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Source+Serif+4:opsz,wght@8..60,300;8..60,400;8..60,600&family=DM+Mono:wght@400;500&display=swap');
+
+  :root {
+    --ink: #1a1410;
+    --parchment: #f5f0e8;
+    --warm-white: #faf8f4;
+    --aged: #e8dfc8;
+    --rust: #8b3a2a;
+    --gold: #c4922a;
+    --verdigris: #3d6b5e;
+    --slate: #4a5568;
+    --faded: #8c7b6b;
+    --rule: rgba(26,20,16,0.15);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--parchment);
+    color: var(--ink);
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 17px;
+    line-height: 1.7;
+    min-height: 100vh;
+  }
+
+  /* ── MASTHEAD ── */
+  .masthead {
+    background: var(--ink);
+    color: var(--parchment);
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .masthead-inner {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 64px 32px 56px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .eyebrow {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 20px;
+  }
+
+  .masthead h1 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(42px, 7vw, 80px);
+    font-weight: 700;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    margin-bottom: 12px;
+  }
+
+  .masthead-subtitle {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-style: italic;
+    font-size: clamp(18px, 2.5vw, 22px);
+    color: rgba(245,240,232,0.65);
+    margin-bottom: 32px;
+    max-width: 560px;
+  }
+
+  .thesis {
+    font-size: 15px;
+    line-height: 1.75;
+    color: rgba(245,240,232,0.8);
+    max-width: 620px;
+    border-left: 2px solid var(--gold);
+    padding-left: 20px;
+    margin-top: 28px;
+  }
+
+  /* decorative Roman numeral watermark */
+  .masthead-deco {
+    position: absolute;
+    right: -20px;
+    top: -10px;
+    font-family: 'Playfair Display', serif;
+    font-size: 260px;
+    font-weight: 700;
+    color: rgba(255,255,255,0.03);
+    line-height: 1;
+    z-index: 1;
+    user-select: none;
+    pointer-events: none;
+  }
+
+  /* ── NAV ── */
+  .nav-strip {
+    background: var(--ink);
+    border-top: 1px solid rgba(255,255,255,0.08);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .nav-inner {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 32px;
+    display: flex;
+    gap: 0;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .nav-inner::-webkit-scrollbar { display: none; }
+
+  .nav-btn {
+    background: none;
+    border: none;
+    color: rgba(245,240,232,0.55);
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 14px 18px;
+    cursor: pointer;
+    white-space: nowrap;
+    border-bottom: 2px solid transparent;
+    transition: color 0.2s, border-color 0.2s;
+  }
+
+  .nav-btn:hover, .nav-btn.active {
+    color: var(--gold);
+    border-bottom-color: var(--gold);
+  }
+
+  /* ── MAIN LAYOUT ── */
+  .container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+
+  /* ── SECTION WRAPPER ── */
+  .course-section {
+    display: none;
+    padding: 56px 0 80px;
+  }
+  .course-section.visible { display: block; }
+
+  /* ── SECTION HEADER ── */
+  .section-header {
+    display: grid;
+    grid-template-columns: 48px 1fr;
+    gap: 0 20px;
+    align-items: start;
+    margin-bottom: 48px;
+    padding-bottom: 32px;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .section-numeral {
+    font-family: 'Playfair Display', serif;
+    font-size: 48px;
+    font-weight: 700;
+    color: var(--gold);
+    line-height: 1;
+    padding-top: 4px;
+  }
+
+  .section-header-text {}
+
+  .section-kicker {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--faded);
+    margin-bottom: 6px;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(26px, 4vw, 36px);
+    font-weight: 700;
+    line-height: 1.15;
+    margin-bottom: 12px;
+  }
+
+  .section-intro {
+    font-size: 16px;
+    color: var(--slate);
+    line-height: 1.75;
+    max-width: 680px;
+  }
+
+  /* ── THEME CALLOUT ── */
+  .theme-callout {
+    background: var(--ink);
+    color: var(--parchment);
+    padding: 28px 32px;
+    margin: 40px 0;
+    border-radius: 2px;
+  }
+
+  .theme-callout-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 10px;
+  }
+
+  .theme-callout p {
+    font-size: 16px;
+    line-height: 1.7;
+    color: rgba(245,240,232,0.85);
+  }
+
+  .theme-callout strong {
+    color: var(--gold);
+    font-style: italic;
+  }
+
+  /* ── UNIT CARDS ── */
+  .units-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .unit-card {
+    background: var(--warm-white);
+    border: 1px solid var(--rule);
+    border-left: 4px solid var(--gold);
+    padding: 32px 32px 28px;
+  }
+
+  .unit-card.verdigris { border-left-color: var(--verdigris); }
+  .unit-card.rust { border-left-color: var(--rust); }
+  .unit-card.slate { border-left-color: #6a859a; }
+  .unit-card.amber { border-left-color: #b8860b; }
+  .unit-card.crimson { border-left-color: #7a2535; }
+  .unit-card.sage { border-left-color: #5a7a5a; }
+  .unit-card.sienna { border-left-color: #9b5722; }
+
+  .unit-era {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--faded);
+    margin-bottom: 8px;
+  }
+
+  .unit-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    line-height: 1.2;
+  }
+
+  .unit-desc {
+    font-size: 15px;
+    color: var(--slate);
+    margin-bottom: 20px;
+    line-height: 1.7;
+  }
+
+  .unit-connections {
+    background: var(--aged);
+    padding: 14px 18px;
+    font-size: 13.5px;
+    color: var(--ink);
+    line-height: 1.65;
+    margin-bottom: 20px;
+    border-radius: 1px;
+  }
+
+  .unit-connections strong {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--rust);
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  /* ── RESOURCE COLUMNS ── */
+  .resources {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-top: 16px;
+  }
+
+  @media (max-width: 600px) {
+    .resources { grid-template-columns: 1fr; }
+    .section-header { grid-template-columns: 1fr; }
+    .section-numeral { font-size: 32px; }
+  }
+
+  .resource-col-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--faded);
+    margin-bottom: 10px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .resource-list {
+    list-style: none;
+  }
+
+  .resource-list li {
+    font-size: 13.5px;
+    color: var(--slate);
+    padding: 5px 0;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    line-height: 1.5;
+  }
+
+  .resource-list li:last-child { border-bottom: none; }
+
+  .book-title { font-style: italic; color: var(--ink); }
+  .resource-note { font-size: 11.5px; color: var(--faded); display: block; margin-top: 1px; }
+
+  /* ── CYCLE SECTION ── */
+  .cycle-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+    margin: 32px 0;
+  }
+
+  .cycle-card {
+    padding: 24px;
+    background: var(--warm-white);
+    border: 1px solid var(--rule);
+    border-top: 3px solid var(--rust);
+  }
+
+  .cycle-card.gold-top { border-top-color: var(--gold); }
+  .cycle-card.green-top { border-top-color: var(--verdigris); }
+  .cycle-card.slate-top { border-top-color: #6a859a; }
+
+  .cycle-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 17px;
+    margin-bottom: 10px;
+  }
+
+  .cycle-card p {
+    font-size: 14px;
+    color: var(--slate);
+    line-height: 1.65;
+  }
+
+  .cycle-examples {
+    margin-top: 10px;
+    font-size: 13px;
+    color: var(--faded);
+    font-style: italic;
+  }
+
+  /* ── COMPARISON TABLE ── */
+  .comparison {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    margin: 32px 0;
+  }
+
+  .comparison th {
+    background: var(--ink);
+    color: var(--gold);
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 12px 16px;
+    text-align: left;
+  }
+
+  .comparison td {
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--rule);
+    color: var(--slate);
+    vertical-align: top;
+    line-height: 1.6;
+  }
+
+  .comparison tr:nth-child(even) td { background: var(--warm-white); }
+  .comparison td:first-child { color: var(--ink); font-weight: 600; }
+
+  /* ── READING PATH ── */
+  .path-steps {
+    margin: 32px 0;
+    position: relative;
+  }
+
+  .path-step {
+    display: grid;
+    grid-template-columns: 36px 1fr;
+    gap: 20px;
+    margin-bottom: 28px;
+  }
+
+  .step-num {
+    width: 36px;
+    height: 36px;
+    background: var(--ink);
+    color: var(--gold);
+    font-family: 'Playfair Display', serif;
+    font-size: 16px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    border-radius: 50%;
+  }
+
+  .step-content h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 17px;
+    margin-bottom: 6px;
+  }
+
+  .step-content p {
+    font-size: 14px;
+    color: var(--slate);
+    line-height: 1.65;
+  }
+
+  /* ── LINKS ── */
+  a.free-link {
+    color: var(--verdigris);
+    text-decoration: none;
+    border-bottom: 1px dashed var(--verdigris);
+    font-size: inherit;
+    transition: color 0.2s, border-color 0.2s;
+  }
+  a.free-link:hover {
+    color: var(--rust);
+    border-bottom-color: var(--rust);
+  }
+  .free-badge {
+    display: inline-block;
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    background: var(--verdigris);
+    color: #fff;
+    padding: 1px 5px;
+    border-radius: 2px;
+    margin-left: 4px;
+    vertical-align: middle;
+    position: relative;
+    top: -1px;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--ink);
+    color: rgba(245,240,232,0.5);
+    text-align: center;
+    padding: 32px;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+  }
+
+  footer span { color: var(--gold); }
+
+  /* ── DIVIDER ── */
+  .divider {
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--rule) 20%, var(--rule) 80%, transparent);
+    margin: 40px 0;
+  }
+
+  .ornament {
+    text-align: center;
+    color: var(--gold);
+    font-size: 20px;
+    margin: 32px 0;
+    letter-spacing: 12px;
+  }
+</style>
+</head>
+<body>
+
+<div class="masthead">
+  <div class="masthead-deco">MMXXVI</div>
+  <div class="masthead-inner">
+    <div class="eyebrow">A Curated World History Curriculum</div>
+    <h1>The Long Arc</h1>
+    <div class="masthead-subtitle">History repeats itself — first as tragedy, then as farce, then as America.</div>
+    <div class="thesis">
+      This course is built around one idea: <em>no civilization exists in isolation.</em> From Babylon to Boston, from the Nile to Nagasaki, the same patterns of rise, overreach, revolution, and reinvention play out across centuries. Your task is to learn to see them.
+    </div>
+  </div>
+</div>
+
+<nav class="nav-strip">
+  <div class="nav-inner">
+    <button class="nav-btn active" onclick="showSection('overview')">Overview</button>
+    <button class="nav-btn" onclick="showSection('ancient')">Ancient Worlds</button>
+    <button class="nav-btn" onclick="showSection('revolutions')">Age of Revolutions</button>
+    <button class="nav-btn" onclick="showSection('empire')">Empire & Collapse</button>
+    <button class="nav-btn" onclick="showSection('japan-latam')">Japan & Latin America</button>
+    <button class="nav-btn" onclick="showSection('coldwar')">Cold War & Modern</button>
+    <button class="nav-btn" onclick="showSection('cycles')">Cycles of History</button>
+    <button class="nav-btn" onclick="showSection('start')">Where to Start</button>
+    <button class="nav-btn" onclick="showSection('tracker')" style="color:var(--gold); border-bottom-color:transparent;">✦ My Progress</button>
+  </div>
+</nav>
+
+<!-- ══════════════════════════════════════ OVERVIEW ══════════════════════════════════════ -->
+<div id="section-overview" class="course-section visible">
+<div class="container">
+
+  <div class="section-header">
+    <div class="section-numeral">I</div>
+    <div class="section-header-text">
+      <div class="section-kicker">The Course at a Glance</div>
+      <h2 class="section-title">How to Use This Curriculum</h2>
+      <p class="section-intro">This isn't a textbook — it's a conversation across time. Each unit pairs civilizations you know with ones you're discovering, and traces the invisible wires connecting them to the United States and to each other.</p>
+    </div>
+  </div>
+
+  <div class="theme-callout">
+    <div class="theme-callout-label">The Central Thesis</div>
+    <p>Every culture you love shares the same drama: a people build something extraordinary, overreach it, watch it fracture, and bequeath the wreckage to the next civilization, who calls it <strong>their founding myth</strong>. The American founders knew their Rome. Napoleon knew his Caesar. Jefferson knew his Thucydides. History isn't cyclical by coincidence — it's cyclical because humans don't change.</p>
+  </div>
+
+  <div class="ornament">✦ ✦ ✦</div>
+
+  <h3 style="font-family:'Playfair Display',serif; font-size:22px; margin-bottom:24px;">The Six Units</h3>
+
+  <table class="comparison">
+    <thead>
+      <tr>
+        <th>Unit</th>
+        <th>Civilizations</th>
+        <th>Core Theme</th>
+        <th>Connection to US</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>I — Ancient Worlds</td>
+        <td>Babylon, Egypt, Rome</td>
+        <td>Empire, law, and myth-making</td>
+        <td>The founders built a Roman republic from scratch</td>
+      </tr>
+      <tr>
+        <td>II — Age of Revolutions</td>
+        <td>American, French, Haitian</td>
+        <td>What happens when liberty meets power</td>
+        <td>Three revolutions, three very different answers</td>
+      </tr>
+      <tr>
+        <td>III — Empire & Collapse</td>
+        <td>Napoleon, Rome's fall, British Empire</td>
+        <td>Overreach and what follows</td>
+        <td>American exceptionalism as Rome's echo</td>
+      </tr>
+      <tr>
+        <td>IV — Japan & Latin America</td>
+        <td>Aztec, Inca, Tokugawa/Meiji Japan</td>
+        <td>What happens when worlds collide</td>
+        <td>Conquest shapes the Americas still</td>
+      </tr>
+      <tr>
+        <td>V — Cold War & Modern</td>
+        <td>US, USSR, Korea, Cuba, Vietnam</td>
+        <td>Ideology as the new religion</td>
+        <td>The US at the height — and limit — of its power</td>
+      </tr>
+      <tr>
+        <td>VI — The Cycles</td>
+        <td>All of the above</td>
+        <td>Pattern recognition across time</td>
+        <td>Where does the US sit in the arc right now?</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="theme-callout">
+    <div class="theme-callout-label">Through Your Existing Loves</div>
+    <p>Baseball is a lens: it's the story of labor, immigration, race, and American mythology compressed into nine innings. Art is a lens: every empire produces art that tells you exactly who it thought it was. The game and the painting are primary sources. We'll use them both.</p>
+  </div>
+
+</div>
+</div>
+
+<!-- ══════════════════════════════════════ ANCIENT ══════════════════════════════════════ -->
+<div id="section-ancient" class="course-section">
+<div class="container">
+
+  <div class="section-header">
+    <div class="section-numeral">II</div>
+    <div class="section-header-text">
+      <div class="section-kicker">Unit One</div>
+      <h2 class="section-title">Ancient Worlds: Babylon, Egypt & Rome</h2>
+      <p class="section-intro">The civilizations you know best — Rome and Egypt — are inseparable from ones you'll want to know better. Babylon gave the world its first law code, its first epic literature, its first bureaucracy. Egypt gave the world monumental time. Rome synthesized everything before it and handed it to the West.</p>
+    </div>
+  </div>
+
+  <div class="units-grid">
+
+    <div class="unit-card amber">
+      <div class="unit-era">3500 – 500 BCE</div>
+      <div class="unit-title">Mesopotamia & Babylon — The World's First Empire Builders</div>
+      <div class="unit-desc">Babylon wasn't just a city — it was an idea: that a king could unite disparate peoples under one law, one language, one god. Hammurabi's Code (1754 BCE) is the first written legal system. The Epic of Gilgamesh predates Homer by a thousand years and asks the same question American literature still asks: <em>what is a man's legacy?</em></div>
+      <div class="unit-connections">
+        <strong>Why it connects to you</strong>
+        The US Constitution's structure of codified law — enforceable, written, supreme — descends directly from this tradition. The concept of a republic governed by law rather than a monarch's whim starts here, not in Rome.
+      </div>
+      <div class="resources">
+        <div>
+          <div class="resource-col-label">📚 Read</div>
+          <ul class="resource-list">
+            <li><a class="free-link" href="https://archive.org/details/epic-of-gilgamesh" target="_blank"><span class="book-title">The Epic of Gilgamesh</span></a><span class="free-badge">free</span><span class="resource-note">Multiple translations via Internet Archive — or <a class="free-link" href="https://www.gutenberg.org/ebooks/18897" target="_blank">Project Gutenberg</a></span></li>
+            <li><span class="book-title">Babylon: Mesopotamia and the Birth of Civilization</span><span class="resource-note">Paul Kriwaczek</span></li>
+            <li><a class="free-link" href="https://avalon.law.yale.edu/ancient/hamframe.asp" target="_blank"><span class="book-title">The Code of Hammurabi</span></a><span class="free-badge">free</span><span class="resource-note">Full text — Yale Law School Avalon Project</span></li>
+          </ul>
+        </div>
+        <div>
+          <div class="resource-col-label">🎬 Watch</div>
+          <ul class="resource-list">
+            <li>Ancient Impossible (History Channel)<span class="resource-note">Engineering of ancient empires</span></li>
+            <li>Mesopotamia: I Have Conquered the River<span class="resource-note">BBC documentary</span></li>
+          </ul>
+        </div>
+        <div>
+          <div class="resource-col-label">🔍 Explore</div>
+          <ul class="resource-list">
+            <li><a class="free-link" href="https://avalon.law.yale.edu/ancient/hamframe.asp" target="_blank">Hammurabi's Code online</a><span class="free-badge">free</span><span class="resource-note">Compare Law 8 to the US criminal code</span></li>
+            <li><a class="free-link" href="https://www.britishmuseum.org/collection/galleries/mesopotamia" target="_blank">The British Museum's Mesopotamia collection</a><span class="free-badge">free</span><span class="resource-note">Searchable online collection with high-res images</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="unit-card gold">
+      <div class="unit-era">3100 – 30 BCE</div>
+      <div class="unit-title">Ancient Egypt — Power, Monument & Eternity</div>
+      <div class="unit-desc">Egypt invented the idea that a state could project permanence — through architecture, art, and religion. The pharaohs weren't kings; they were living gods. Understanding Egypt means understanding how societies use art and spectacle to legitimize power — a lesson that Napoleon, Louis XIV, and the US Capitol's architects all absorbed directly.</div>
+      <div class="unit-connections">
+        <strong>Why it connects to you</strong>
+        Napoleon's Egyptian campaign (1798) directly shaped French art, politics, and Europe's obsession with antiquity. The Washington Monument is an obelisk — deliberate Egyptian symbolism. The Founding Fathers were infatuated with Egypt as a symbol of enduring civilization.
+      </div>
+      <div class="resources">
+        <div>
+          <div class="resource-col-label">📚 Read</div>
+          <ul class="resource-list">
+            <li><span class="book-title">The Rise and Fall of Ancient Egypt</span><span class="resource-note">Toby Wilkinson — definitive modern history</span></li>
+            <li><span class="book-title">Cleopatra: A Life</span><span class="resource-note">Stacy Schiff — where Egypt meets Rome</span></li>
+            <li><a class="free-link" href="https://archive.org/details/bookofthedead00budg" target="_blank"><span class="book-title">The Egyptian Book of the Dead</span></a><span class="free-badge">free</span><span class="resource-note">Budge translation — Internet Archive</span></li>
+          </ul>
+        </div>
+        <div>
+          <div class="resource-col-label">🎬 Watch</div>
+          <ul class="resource-list">
+            <li>Egypt's Lost Queens (BBC)<span class="resource-note">Hatshepsut, Nefertiti, Cleopatra</span></li>
+            <li>Ramesses: Wrath of God or Man? (PBS)<span class="resource-note">Power and legacy</span></li>
+          </ul>
+        </div>
+        <div>
+          <div class="resource-col-label">🎨 Art Lens</div>
+          <ul class="resource-list">
+            <li>Nefertiti Bust (Neues Museum Berlin)<span class="resource-note">The most political portrait ever made</span></li>
+            <li>Book of the Dead illustrations<span class="resource-note">First illustrated manuscripts</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="unit-card rust">
+      <div class="unit-era">753 BCE – 476 CE</div>
+      <div class="unit-title">Rome — The Blueprint for Everything That Followed</div>
+      <div class="unit-desc">Rome is not just a civilization — it's the operating system the Western world runs on. The Republic, the Senate, the concept of citizenship, the rule of law, the standing army, the road network, the aqueduct. And then the fall — which every subsequent civilization has used as a warning and a mirror. The American Founders were obsessed with Rome. They called themselves Publius, Cato, and Brutus.</div>
+      <div class="unit-connections">
+        <strong>Why it connects to you</strong>
+        The US Senate is named after Rome's. Roman fasces appear on the US Mercury dime and the Lincoln Memorial. The Founders debated Caesar and Cicero in their letters the way we debate Twitter. Baseball's stadiums — Fenway's Roman brick arch, the modern coliseum shape — are Roman inheritances.
+      </div>
+      <div class="resources">
+        <div>
+          <div class="resource-col-label">📚 Read</div>
+          <ul class="resource-list">
+            <li><span class="book-title">SPQR</span><span class="resource-note">Mary Beard — the single best modern Roman history</span></li>
+            <li><span class="book-title">Rubicon</span><span class="resource-note">Tom Holland — the Republic's fall</span></li>
+            <li><span class="book-title">The Storm Before the Storm</span><span class="resource-note">Mike Duncan — the generation before Caesar</span></li>
+            <li><a class="free-link" href="https://classics.mit.edu/Antoninus/meditations.1.one.html" target="_blank"><span class="book-title">Meditations</span></a><span class="free-badge">free</span><span class="resource-note">Marcus Aurelius — MIT Internet Classics Archive</span></li>
+          </ul>
+        </div>
+        <div>
+          <div class="resource-col-label">🎬 Watch</div>
+          <ul class="resource-list">
+            <li>HBO's Rome (2005–2007)<span class="resource-note">Lavish, mostly accurate, essential</span></li>
+            <li>Netflix's Barbarians<span class="resource-note">The fall from the other side</span></li>
+            <li><a class="free-link" href="https://open.spotify.com/show/6wiEd40oPbQ9UK1rSpIy8I" target="_blank">The History of Rome podcast</a><span class="free-badge">free</span><span class="resource-note">Mike Duncan — 179 episodes. Key blocks: Eps 1–3 (founding), 29–34 (Republic cracking), 35–44 (Caesar), 45–55 (Augustus), 74–76 (Marcus Aurelius), 159–179 (the fall). Or go straight through — it rewards it.</span></li>
+          </ul>
+        </div>
+        <div>
+          <div class="resource-col-label">🎨 Art Lens</div>
+          <ul class="resource-list">
+            <li>Trajan's Column<span class="resource-note">First comic strip — propaganda in marble</span></li>
+            <li>Jacques-Louis David's Brutus<span class="resource-note">Painted 1789 — Rome as French Revolution</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+</div>
+
+<!-- ══════════════════════════════════════ REVOLUTIONS ══════════════════════════════════════ -->
+<div id="section-revolutions" class="course-section">
+<div class="container">
+
+  <div class="section-header">
+    <div class="section-numeral">III</div>
+    <div class="section-header-text">
+      <div class="section-kicker">Unit Two</div>
+      <h2 class="section-title">The Age of Revolutions: America, France & Haiti</h2>
+      <p class="section-intro">Within 15 years, three revolutions redrew the map of the Western world — and each gave a different answer to the question: <em>what do we do with liberty once we have it?</em> Studying them together is the key to understanding all three.</p>
+    </div>
+  </div>
+
+  <div class="theme-callout">
+    <div class="theme-callout-label">The Triangle You Need to Know</div>
+    <p>The American Revolution inspired the French. The French Revolution inspired the Haitian. The Haitian Revolution terrified the American south and accelerated the Louisiana Purchase. All three were happening simultaneously and watching each other. <strong>Jefferson wrote his Declaration in Paris.</strong> He watched the French Revolution from the American embassy and didn't quite know what to make of it.</p>
+  </div>
+
+  <div class="units-grid">
+
+    <div class="unit-card verdigris">
+      <div class="unit-era">1776 – 1800</div>
+      <div class="unit-title">The American Revolution — A Roman Experiment</div>
+      <div class="unit-desc">The founders didn't invent their ideas — they assembled them from Locke, Montesquieu, Roman history, and English common law. What made the American founding remarkable wasn't the theory but the execution: that it produced a stable republic, not a Caesar. But it was a close-run thing, and the slavery compromise was the crack in the foundation that would split the structure 80 years later.</div>
+      <div class="unit-connections">
+        <strong>The Cyclical Connection</strong>
+        Roman senators worried about demagogues with armies. The Founders built the Electoral College and the Senate partly to stop an American Caesar. They read Polybius on how republics fall. The debate about whether republics inevitably become empires is still live.
+      </div>
+      <div class="resources">
+        <div>
+          <div class="resource-col-label">📚 Read</div>
+          <ul class="resource-list">
+            <li><span class="book-title">The Quartet</span><span class="resource-note">Joseph Ellis — how the Constitution actually got made</span></li>
+            <li><span class="book-title">American Scripture</span><span class="resource-note">Pauline Maier — the Declaration's real origins</span></li>
+            <li><span class="book-title">Founding Brothers</span><span class="resource-note">Joseph Ellis — the founders as political operators</span></li>
+          </ul>
+        </div>
+        <div>
+          <div class="resource-col-label">🎬 Watch</div>
+          <ul class="resource-list">
+            <li>John Adams (HBO, 2008)<span class="resource-note">Paul Giamatti, superb</span></li>
+            <li>Hamilton (Disney+)<span class="resource-note">As historiography, not just theater</span></li>
+          </ul>
+        </div>
+        <div>
+          <div class="resource-col-label">🎨 Art Lens</div>
+          <ul class="resource-list">
+            <li>John Trumbull's Declaration paintings<span class="resource-note">Myth-making in oil</span></li>
+            <li>Gilbert Stuart's Washington portraits<span class="resource-note">The Roman emperor look — deliberate</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="unit-card rust">
+      <div class="unit-era">1789 – 1799</div>
+      <div class="unit-title">The French Revolution — Liberty's Darker Twin</div>
+      <div class="unit-desc">The French Revolution began inspired by America and ended with a military dictator. Why? Because France lacked what America had: a civic culture already practiced in self-governance, a federal structure, and — crucially — an ocean between them and their enemies. The Revolution ate its own children because the stakes of failure were existential. This is the most important story in modern history for understanding how democracies fail.</div>
+      <div class="unit-connections">
+        <strong>The Cyclical Connection</strong>
+        The Terror, the Thermidorian reaction, the Directory, Napoleon — each phase has a pattern. Radical revolution produces counter-revolution. Ideological purity produces purges. Purges produce exhaustion. Exhaustion produces a strongman. Watch this sequence repeat in Russia 1917, China 1949, Iran 1979. The American founding was the exception, not the rule.
+      </div>
+      <div class="resources">
+        <div>
+          <div class="resource-col-label">📚 Read</div>
+          <ul class="resource-list">
+            <li><span class="book-title">Citizens</span><span class="resource-note">Simon Schama — the richest single-volume account</span></li>
+            <li><span class="book-title">A Place of Greater Safety</span><span class="resource-note">Hilary Mantel — fiction, but astounding</span></li>
+            <li><span class="book-title">The Oxford History of the French Revolution</span><span class="resource-note">William Doyle — academic but readable</span></li>
+          </ul>
+        </div>
+        <div>
+          <div class="resource-col-label">🎬 Watch</div>
+          <ul class="resource-list">
+            <li>La Révolution (Netflix)<span class="resource-note">Stylized but historically engaged</span></li>
+            <li>The French Revolution (History Channel, 2005)</li>
+            <li>Danton (1983, film)<span class="resource-note">Depardieu — the revolution eating itself</span></li>
+          </ul>
+        </div>
+        <div>
+          <div class="resource-col-label">🎨 Art Lens</div>
+          <ul class="resource-list">
+            <li>David's Death of Marat<span class="resource-note">The revolution's pietà — propaganda as masterpiece</span></li>
+            <li>Delacroix's Liberty Leading the People<span class="resource-note">Painted 1830 — retroactive mythology</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="unit-card sage">
+      <div class="unit-era">1791 – 1804</div>
+      <div class="unit-title">The Haitian Revolution — The One They Don't Teach</div>
+      <div class="unit-desc">The only successful slave revolt in history. Haiti (then Saint-Domingue) was France's richest colony, producing 40% of Europe's sugar. Enslaved people, inspired by the Declaration of the Rights of Man, rose up, defeated Napoleon's army, and founded the world's first Black republic in 1804. The US refused to recognize Haiti for 58 years. Jefferson, who wrote "all men are created equal," embargoed Haiti because he was terrified of what it meant.</div>
+      <div class="unit-connections">
+        <strong>Why it matters to US history</strong>
+        Napoleon's failure in Haiti directly caused him to sell Louisiana to the US in 1803. Without Haiti's revolution, there is no Louisiana Purchase, and US westward expansion looks completely different. The revolution that American history barely mentions shaped American geography entirely.
+      </div>
+      <div class="resources">
+        <div>
+          <div class="resource-col-label">📚 Read</div>
+          <ul class="resource-list">
+            <li><a class="free-link" href="https://files.libcom.org/files/TheBlackJacobinsCLRJames.pdf" target="_blank"><span class="book-title">The Black Jacobins</span></a><span class="free-badge">free PDF</span><span class="resource-note">C.L.R. James — the classic; essential</span></li>
+            <li><span class="book-title">Toussaint Louverture</span><span class="resource-note">Madison Smartt Bell — biography of the revolution's leader</span></li>
+            <li><span class="book-title">Master of the Crossroads</span><span class="resource-note">Bell's trilogy on Haiti</span></li>
+          </ul>
+        </div>
+        <div>
+          <div class="resource-col-label">🎬 Watch</div>
+          <ul class="resource-list">
+            <li>Toussaint Louverture (2012)<span class="resource-note">French TV film, subtitled</span></li>
+            <li>Haiti: Killing the Dream (PBS Frontline)</li>
+          </ul>
+        </div>
+        <div>
+          <div class="resource-col-label">🎨 Art Lens</div>
+          <ul class="resource-list">
+            <li><a class="free-link" href="https://americanart.si.edu/artist/jacob-lawrence-2943" target="_blank">Jacob Lawrence's Toussaint L'Ouverture series</a><span class="free-badge">free</span><span class="resource-note">41 panels, painted 1937–38 — Smithsonian American Art Museum</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+</div>
+
+<!-- ══════════════════════════════════════ EMPIRE ══════════════════════════════════════ -->
+<div id="section-empire" class="course-section">
+<div class="container">
+
+  <div class="section-header">
+    <div class="section-numeral">IV</div>
+    <div class="section-header-text">
+      <div class="section-kicker">Unit Three</div>
+      <h2 class="section-title">Empire & Collapse: Napoleon, Louis XIV & the Arc of Power</h2>
+      <p class="section-intro">What do you do after a revolution? Every society that tears down its old order faces the same crisis: a vacuum of authority that something — or someone — will fill. Napoleon is the answer France gave. Louis XIV is the answer that made Napoleon necessary. Together they frame the question every superpower eventually faces: how much is too much?</p>
+    </div>
+  </div>
+
+  <div class="units-grid">
+
+    <div class="unit-card sienna">
+      <div class="unit-era">1643 – 1715</div>
+      <div class="unit-title">Louis XIV & Versailles — Power Made Visible</div>
+      <div class="unit-desc">The Sun King invented the modern state as spectacle. Versailles was a political weapon — it gathered the nobility in one place, bankrupted them with the cost of court life, and kept them dependent on royal favor. His famous line "L'état, c'est moi" (I am the state) describes a system that made the French state utterly dependent on the king's personal genius. When a lesser man inherited it, the whole system collapsed — producing the conditions for the Revolution.</div>
+      <div class="unit-connections">
+        <strong>The Cyclical Connection</strong>
+        Louis's system is the story of institutional brittleness: a structure built for one exceptional person cannot survive ordinary succession. This pattern recurs with Napoleon, with Rome's emperors after Augustus, with the Soviet Union after Stalin.
+      </div>
+      <div class="resources">
+        <div>
+          <div class="resource-col-label">📚 Read</div>
+          <ul class="resource-list">
+            <li><span class="book-title">The Sun King</span><span class="resource-note">Nancy Mitford — elegant, witty biography</span></li>
+            <li><span class="book-title">Versailles: A Biography of a Palace</span><span class="resource-note">Tony Spawforth</span></li>
+          </ul>
+        </div>
+        <div>
+          <div class="resource-col-label">🎬 Watch</div>
+          <ul class="resource-list">
+            <li>Versailles (Canal+/Netflix)<span class="resource-note">3 seasons; lush and politically sharp</span></li>
+            <li>The Rise of Louis XIV (1966)<span class="resource-note">Roberto Rossellini's remarkable film</span></li>
+          </ul>
+        </div>
+        <div>
+          <div class="resource-col-label">🎨 Art Lens</div>
+          <ul class="resource-list">
+            <li>Hyacinthe Rigaud's Louis XIV portrait<span class="resource-note">The definitive image of absolute power</span></li>
+            <li>The Hall of Mirrors, Versailles<span class="resource-note">Architecture as propaganda</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="unit-card rust">
+      <div class="unit-era">1799 – 1815</div>
+      <div class="unit-title">Napoleon — The Revolution's Heir and Its Betrayal</div>
+      <div class="unit-desc">Napoleon is one of history's great Rorschach tests. Liberal reformer or military dictator? Heir of the Revolution or its gravedigger? Both are true. He spread the Napoleonic Code (based on revolutionary principles) across Europe while crowning himself Emperor. His rise and fall is the template for modern authoritarianism — and for the limits of military genius in politics. He won every battle and lost every war.</div>
+      <div class="unit-connections">
+        <strong>Why it connects to you</strong>
+        Napoleon directly shaped the US: the Louisiana Purchase; the Continental System that drove the War of 1812; the inspiration for how 19th-century American presidents imagined executive power. His legal code is still the basis for Louisiana state law today.
+      </div>
+      <div class="resources">
+        <div>
+          <div class="resource-col-label">📚 Read</div>
+          <ul class="resource-list">
+            <li><span class="book-title">Napoleon: A Life</span><span class="resource-note">Andrew Roberts — the current gold standard</span></li>
+            <li><span class="book-title">The Napoleonic Wars</span><span class="resource-note">Alexander Mikaberidze — the global view</span></li>
+            <li><span class="book-title">War and Peace</span><span class="resource-note">Tolstoy — fiction as history; the Russian view</span></li>
+          </ul>
+        </div>
+        <div>
+          <div class="resource-col-label">🎬 Watch</div>
+          <ul class="resource-list">
+            <li>Napoleon (2023, Ridley Scott)<span class="resource-note">Flawed but visually stunning</span></li>
+            <li>Waterloo (1970)<span class="resource-note">Rod Steiger; the best battle film</span></li>
+            <li>Napoleon (PBS, 2000)<span class="resource-note">John Milius documentary</span></li>
+          </ul>
+        </div>
+        <div>
+          <div class="resource-col-label">🎨 Art Lens</div>
+          <ul class="resource-list">
+            <li>David's Napoleon Crossing the Alps<span class="resource-note">Pure myth-making — he actually crossed on a mule</span></li>
+            <li>Goya's The Third of May<span class="resource-note">The other side of Napoleonic conquest</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+</div>
+
+<!-- ══════════════════════════════════════ JAPAN & LATAM ══════════════════════════════════════ -->
+<div id="section-japan-latam" class="course-section">
+<div class="container">
+
+  <div class="section-header">
+    <div class="section-numeral">V</div>
+    <div class="section-header-text">
+      <div class="section-kicker">Unit Four — New Territory</div>
+      <h2 class="section-title">Japan & Latin America: Worlds Colliding</h2>
+      <p class="section-intro">These are the two regions you said fascinate you but feel unknown. They share a remarkable pattern: both experienced catastrophic contact with outside powers that forced total transformation — and both developed fierce national identities in response. Start here for the biggest expansion of your historical imagination.</p>
+    </div>
+  </div>
+
+  <div class="theme-callout">
+    <div class="theme-callout-label">The Pattern to Watch</div>
+    <p>The Aztec and Inca empires were <strong>not</strong> Stone Age societies crushed by advanced Europeans. They were sophisticated civilizations with millions of people, complex politics, writing, astronomy, and agriculture. What defeated them was primarily disease — and the political fragmentation that European disease and weaponry accelerated. Japan faced the same Western pressure centuries later, but had the isolation and unity to resist and adapt. The comparison is illuminating.</p>
+  </div>
+
+  <div class="units-grid">
+
+    <div class="unit-card slate">
+      <div class="unit-era">1200 – 1600 CE</div>
+      <div class="unit-title">The Aztec & Inca Empires — America's Ancient Worlds</div>
+      <div class="unit-desc">Tenochtitlan (today's Mexico City) in 1500 was larger than any city in Europe. The Inca Empire stretched 4,000 km along the Andes and had no writing system yet administered millions of people through an extraordinary quipu (knotted string) record system. These weren't primitive cultures — they were peer civilizations to contemporary European states. The Spanish conquest is not a story of superiority; it's a story of disease, diplomacy, and catastrophic luck.</div>
+      <div class="unit-connections">
+        <strong>Why it connects to US history</strong>
+        The colonization of Latin America set the template for US westward expansion. The idea that indigenous peoples were savage and land was empty — <em>terra nullius</em> — was first developed to justify Spanish and Portuguese conquest, then adopted wholesale by Anglo settlers. Understanding Cortés explains Andrew Jackson.
+      </div>
+      <div class="resources">
+        <div>
+          <div class="resource-col-label">📚 Read</div>
+          <ul class="resource-list">
+            <li><a class="free-link" href="https://archive.org/details/truehistoryconqu00diaz" target="_blank"><span class="book-title">Conquest of New Spain</span></a><span class="free-badge">free</span><span class="resource-note">Bernal Díaz — written by a soldier who was there — Internet Archive</span></li>
+            <li><span class="book-title">1491</span><span class="resource-note">Charles Mann — pre-Columbian Americas, paradigm-shifting</span></li>
+            <li><span class="book-title">Inca: Lords of Gold and Glory</span><span class="resource-note">Time-Life — a good visual starting point</span></li>
+            <li><span class="book-title">When Montezuma Met Cortés</span><span class="resource-note">Matthew Restall — revisionist, brilliant</span></li>
+          </ul>
+        </div>
+        <div>
+          <div class="resource-col-label">🎬 Watch</div>
+          <ul class="resource-list">
+            <li>Apocalypto (2006)<span class="resource-note">Gibson's film — violent but visually honest about Mayan culture</span></li>
+            <li>Kingdom of the Sun (National Geographic)</li>
+            <li>Ancient Impossible (History Channel)<span class="resource-note">Inca engineering episodes</span></li>
+          </ul>
+        </div>
+        <div>
+          <div class="resource-col-label">🎨 Art Lens</div>
+          <ul class="resource-list">
+            <li>Aztec Sun Stone<span class="resource-note">A calendar, a cosmology, and a political statement</span></li>
+            <li><a class="free-link" href="https://artsandculture.google.com/streetview/national-palace-mexico/6wF6GEBsFb88Kg" target="_blank">Diego Rivera's murals (Mexico City)</a><span class="free-badge">free</span><span class="resource-note">Google Arts & Culture virtual tour of the National Palace</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="unit-card crimson">
+      <div class="unit-era">1600 – 1900</div>
+      <div class="unit-title">Japan: From Isolation to Empire — The Fastest Transformation in History</div>
+      <div class="unit-desc">For 250 years under the Tokugawa shogunate, Japan was deliberately sealed from the outside world. Foreigners were expelled; Japanese were forbidden to leave; a rigid feudal hierarchy froze society in place. Then in 1853, US Commodore Matthew Perry arrived with steam-powered warships and demanded trade access — and Japan's world shattered. What followed — the Meiji Restoration — was perhaps the most remarkable national transformation ever achieved: within 40 years, Japan went from feudal samurai culture to an industrialized imperial power that defeated Russia.</div>
+      <div class="unit-connections">
+        <strong>Why it connects to US history</strong>
+        The US literally opened Japan — Perry's "Black Ships" are one of the most consequential moments in American foreign policy. The chain runs directly: Perry → Meiji industrialization → Japanese imperial expansion → Pearl Harbor → Hiroshima → Cold War Pacific strategy. This is a thread you can follow from 1853 to today.
+      </div>
+      <div class="resources">
+        <div>
+          <div class="resource-col-label">📚 Read</div>
+          <ul class="resource-list">
+            <li><span class="book-title">The Last Samurai</span><span class="resource-note">Helen DeWitt — fiction, not the film; profound</span></li>
+            <li><span class="book-title">Japan: A History</span><span class="resource-note">R.H.P. Mason — solid overview for beginners</span></li>
+            <li><span class="book-title">The Meiji Restoration</span><span class="resource-note">W.G. Beasley — the transformation itself</span></li>
+            <li><span class="book-title">Musashi</span><span class="resource-note">Eiji Yoshikawa — the Samurai novel; Japan's Iliad</span></li>
+          </ul>
+        </div>
+        <div>
+          <div class="resource-col-label">🎬 Watch</div>
+          <ul class="resource-list">
+            <li>Shogun (FX/Hulu, 2024)<span class="resource-note">The new version is historically extraordinary</span></li>
+            <li>Rurouni Kenshin (2012, film)<span class="resource-note">Meiji era; samurai in a modern world</span></li>
+            <li>The Last Samurai (2003)<span class="resource-note">Flawed but a useful entry point</span></li>
+          </ul>
+        </div>
+        <div>
+          <div class="resource-col-label">🎨 Art Lens</div>
+          <ul class="resource-list">
+            <li><a class="free-link" href="https://www.metmuseum.org/art/collection/search/45434" target="_blank">Hokusai's Great Wave</a><span class="free-badge">free</span><span class="resource-note">Late Tokugawa — full resolution at the Met</span></li>
+            <li><a class="free-link" href="https://www.loc.gov/item/2002699696/" target="_blank">Hiroshige's 53 Stations of the Tokaido</a><span class="free-badge">free</span><span class="resource-note">Full series at Library of Congress</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+</div>
+
+<!-- ══════════════════════════════════════ COLD WAR ══════════════════════════════════════ -->
+<div id="section-coldwar" class="course-section">
+<div class="container">
+
+  <div class="section-header">
+    <div class="section-numeral">VI</div>
+    <div class="section-header-text">
+      <div class="section-kicker">Unit Five</div>
+      <h2 class="section-title">The Cold War: Ideology as the New Religion</h2>
+      <p class="section-intro">The Cold War was not primarily a military conflict — it was a war of ideas, myths, and competing visions of human organization. In this it resembled the wars of religion that tore Europe apart in the 16th and 17th centuries. Understanding it requires understanding both sides' foundational stories — and the dozens of countries caught between them.</p>
+    </div>
+  </div>
+
+  <div class="theme-callout">
+    <div class="theme-callout-label">The Baseball Connection</div>
+    <p>Baseball becomes the Cold War's cultural battlefield in ways that are deeply revealing. Jackie Robinson's integration (1947) was deployed by the US State Department as propaganda against Soviet claims of American racism. The 1955 Boys of Summer Dodgers were a multicultural team in a segregated city — a microcosm of American contradiction. Cuban baseball becomes a Cold War flashpoint after 1959. The <strong>1972 US-USSR hockey game at the World Championships</strong> was called "the war the Cold War almost became."</p>
+  </div>
+
+  <div class="units-grid">
+
+    <div class="unit-card slate">
+      <div class="unit-era">1945 – 1991</div>
+      <div class="unit-title">The Cold War — America at the Height of Its Power</div>
+      <div class="unit-desc">The Cold War is where American history becomes world history. Every conflict from Korea to Vietnam to Afghanistan to the Middle East has roots in the post-WWII competition between US and Soviet spheres of influence. But the most important Cold War stories are often the ones that happened in the margins — in Guatemala, Chile, Iran, and the Congo — where American intervention toppled governments, installed dictators, and created the anti-American sentiment that still shapes global politics.</div>
+      <div class="unit-connections">
+        <strong>The Cyclical Connection</strong>
+        Compare the Cold War to Rome's relationship with its client states, or Britain's 19th-century empire. Every great power develops a "sphere of influence" rationale that justifies intervention in weaker nations' affairs. The Monroe Doctrine (1823) is the template; the Cold War is its fullest expression.
+      </div>
+      <div class="resources">
+        <div>
+          <div class="resource-col-label">📚 Read</div>
+          <ul class="resource-list">
+            <li><span class="book-title">The Cold War: A World History</span><span class="resource-note">Odd Arne Westad — the global view; essential</span></li>
+            <li><span class="book-title">The Spy and the Traitor</span><span class="resource-note">Ben Macintyre — reads like a thriller</span></li>
+            <li><span class="book-title">The Looming Tower</span><span class="resource-note">Lawrence Wright — Cold War's unintended consequence</span></li>
+            <li><span class="book-title">One Minute to Midnight</span><span class="resource-note">Michael Dobbs — Cuban Missile Crisis, day by day</span></li>
+          </ul>
+        </div>
+        <div>
+          <div class="resource-col-label">🎬 Watch</div>
+          <ul class="resource-list">
+            <li>The Americans (FX, 2013–2018)<span class="resource-note">The best Cold War drama ever made</span></li>
+            <li>The Cold War (CNN, 1998)<span class="resource-note">24-episode documentary series; definitive</span></li>
+            <li>Thirteen Days (2000)<span class="resource-note">Cuban Missile Crisis film</span></li>
+            <li>Oppenheimer (2023)<span class="resource-note">The bomb that made the Cold War possible</span></li>
+          </ul>
+        </div>
+        <div>
+          <div class="resource-col-label">⚾ Baseball Lens</div>
+          <ul class="resource-list">
+            <li><span class="book-title">Stealing Home</span><span class="resource-note">Robert Whiting — baseball in Cold War Japan</span></li>
+            <li><a class="free-link" href="https://www.pbs.org/kenburns/baseball/" target="_blank">Ken Burns' Baseball (PBS)</a><span class="free-badge">free</span><span class="resource-note">Full series streamable on PBS.org — Episodes 6–10 cover the Cold War era</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+</div>
+
+<!-- ══════════════════════════════════════ CYCLES ══════════════════════════════════════ -->
+<div id="section-cycles" class="course-section">
+<div class="container">
+
+  <div class="section-header">
+    <div class="section-numeral">VII</div>
+    <div class="section-header-text">
+      <div class="section-kicker">Unit Six — The Through-Line</div>
+      <h2 class="section-title">The Cycles of History</h2>
+      <p class="section-intro">Once you've moved through the units above, you'll start seeing patterns that cut across centuries and continents. This final unit names them — and asks where the United States sits in these cycles right now.</p>
+    </div>
+  </div>
+
+  <div class="cycle-grid">
+    <div class="cycle-card gold-top">
+      <h3>The Succession Problem</h3>
+      <p>Every exceptional leader creates a system that cannot survive their departure. Augustus → Roman civil wars. Louis XIV → Revolution. Napoleon → Restoration. Stalin → Soviet stagnation.</p>
+      <div class="cycle-examples">Ask: How do the US's institutional guardrails compare to Rome's?</div>
+    </div>
+    <div class="cycle-card">
+      <h3>Revolution Devours Its Children</h3>
+      <p>The idealists who start revolutions are almost never the people who end up running the resulting state. Robespierre was guillotined. Trotsky was exiled and murdered. The Cuban revolution's poets were imprisoned.</p>
+      <div class="cycle-examples">Ask: Who got purged in the American founding? (Aaron Burr, the Federalists)</div>
+    </div>
+    <div class="cycle-card green-top">
+      <h3>Overreach & Retrenchment</h3>
+      <p>Every empire at its peak makes the same mistake: it projects power beyond its logistical or political capacity to sustain. Athens in Sicily. Napoleon in Russia. America in Vietnam and Iraq.</p>
+      <div class="cycle-examples">Ask: Where is the US in this cycle today?</div>
+    </div>
+    <div class="cycle-card gold-top">
+      <h3>Disease as History</h3>
+      <p>The Antonine Plague weakened Rome. The Black Death reshuffled European society. COVID-19 in the Americas killed entire civilizations before Europeans arrived. Epidemics reshape political power faster than any army.</p>
+      <div class="cycle-examples">Ask: What political changes followed each pandemic?</div>
+    </div>
+    <div class="cycle-card slate-top">
+      <h3>The Barbarian Paradox</h3>
+      <p>Every dominant civilization defines "barbarian" to mean "not us" — then discovers the barbarians have virtues it has lost. Rome absorbed its Germanic conquerors. The Mongols absorbed Chinese culture. America made its greatest music from its most oppressed people.</p>
+      <div class="cycle-examples">Ask: Who are today's "barbarians"? And what do they have that we've lost?</div>
+    </div>
+    <div class="cycle-card green-top">
+      <h3>Art as Evidence</h3>
+      <p>Every civilization leaves art that tells you exactly who it thought it was. Egyptian art is timeless and divine. Roman art is realistic and triumphal. American art (from Whitman to jazz to baseball) is democratic and anxious about its own greatness.</p>
+      <div class="cycle-examples">Ask: What does this era's art say about us?</div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="theme-callout">
+    <div class="theme-callout-label">The Books That Teach the Pattern Directly</div>
+    <p>These works are about history's shape, not its facts. Read them after you've done the units above and they'll hit differently.</p>
+  </div>
+
+  <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(240px,1fr)); gap:16px; margin-top:24px;">
+    <div style="background:var(--warm-white); border:1px solid var(--rule); padding:20px;">
+      <div class="resource-col-label" style="margin-bottom:8px;">The Big Picture</div>
+      <ul class="resource-list">
+        <li><span class="book-title">The Lessons of History</span><span class="resource-note">Will & Ariel Durant — 100 pages; the distillation of a lifetime</span></li>
+        <li><span class="book-title">The Fate of Rome</span><span class="resource-note">Kyle Harper — climate, disease, and collapse</span></li>
+        <li><span class="book-title">Guns, Germs, and Steel</span><span class="resource-note">Jared Diamond — why some civilizations dominated others</span></li>
+        <li><span class="book-title">The Decline of the West</span><span class="resource-note">Oswald Spengler — controversial but formative</span></li>
+      </ul>
+    </div>
+    <div style="background:var(--warm-white); border:1px solid var(--rule); padding:20px;">
+      <div class="resource-col-label" style="margin-bottom:8px;">America's Place in the Arc</div>
+      <ul class="resource-list">
+        <li><span class="book-title">Are We Rome?</span><span class="resource-note">Cullen Murphy — the comparison made explicit</span></li>
+        <li><span class="book-title">The Rise and Fall of the Great Powers</span><span class="resource-note">Paul Kennedy — economic cycles of power</span></li>
+        <li><span class="book-title">Twilight of Democracy</span><span class="resource-note">Anne Applebaum — modern echoes of 1930s Europe</span></li>
+      </ul>
+    </div>
+    <div style="background:var(--warm-white); border:1px solid var(--rule); padding:20px;">
+      <div class="resource-col-label" style="margin-bottom:8px;">Podcasts for the Road</div>
+      <ul class="resource-list">
+        <li><a class="free-link" href="https://revolutionspodcast.libsyn.com/" target="_blank">Revolutions (Mike Duncan)</a><span class="free-badge">free</span><span class="resource-note">English, American, French, Haitian — in depth</span></li>
+        <li><a class="free-link" href="https://open.spotify.com/show/6wiEd40oPbQ9UK1rSpIy8I" target="_blank">The History of Rome (Mike Duncan)</a><span class="free-badge">free</span><span class="resource-note">179 eps — full run rewards it; tracker page has episode-by-episode breakdown</span></li>
+        <li><a class="free-link" href="https://fallofcivilizationspodcast.com/" target="_blank">Fall of Civilizations</a><span class="free-badge">free</span><span class="resource-note">Beautifully produced; each episode one collapse</span></li>
+        <li><a class="free-link" href="https://www.dancarlin.com/hardcore-history-series/" target="_blank">Hardcore History (Dan Carlin)</a><span class="free-badge">free recent eps</span><span class="resource-note">Long-form; gripping on every subject</span></li>
+        <li><a class="free-link" href="https://wondery.com/shows/american-history-tellers/" target="_blank">American History Tellers (Wondery)</a><span class="free-badge">free</span><span class="resource-note">Narrative US history, well produced</span></li>
+      </ul>
+    </div>
+  </div>
+
+</div>
+</div>
+
+<!-- ══════════════════════════════════════ WHERE TO START ══════════════════════════════════════ -->
+<div id="section-start" class="course-section">
+<div class="container">
+
+  <div class="section-header">
+    <div class="section-numeral">VIII</div>
+    <div class="section-header-text">
+      <div class="section-kicker">Your Reading Path</div>
+      <h2 class="section-title">Where to Start: A Sequenced On-Ramp</h2>
+      <p class="section-intro">The full curriculum is deep — so here's a sequenced path of twelve books and four shows that build on each other and give you the maximum foundation in the minimum time.</p>
+    </div>
+  </div>
+
+  <div class="path-steps">
+
+    <div class="path-step">
+      <div class="step-num">1</div>
+      <div class="step-content">
+        <h4>Start: <em>The Lessons of History</em> — Will & Ariel Durant</h4>
+        <p>100 pages that survey all of human history's recurring patterns. Read this first and every other book becomes richer. It's the map before the territory.</p>
+      </div>
+    </div>
+
+    <div class="path-step">
+      <div class="step-num">2</div>
+      <div class="step-content">
+        <h4>Ancient: <em>SPQR</em> — Mary Beard</h4>
+        <p>The best modern Roman history. Read alongside Mike Duncan's "History of Rome" podcast. This is the foundation for understanding the American founding.</p>
+      </div>
+    </div>
+
+    <div class="path-step">
+      <div class="step-num">3</div>
+      <div class="step-content">
+        <h4>Watch: <em>HBO's Rome</em> (2005–2007)</h4>
+        <p>Two seasons. Watch it while reading Beard. The visual grammar of Roman politics will stick with you.</p>
+      </div>
+    </div>
+
+    <div class="path-step">
+      <div class="step-num">4</div>
+      <div class="step-content">
+        <h4>Revolution: <em>Citizens</em> — Simon Schama</h4>
+        <p>The French Revolution in full. Long but gripping. Pairs with the Versailles series on Netflix.</p>
+      </div>
+    </div>
+
+    <div class="path-step">
+      <div class="step-num">5</div>
+      <div class="step-content">
+        <h4>Revolution: <em>The Black Jacobins</em> — C.L.R. James</h4>
+        <p>Read this immediately after Schama. It will reframe everything you just read about the French Revolution from a perspective you haven't encountered before.</p>
+      </div>
+    </div>
+
+    <div class="path-step">
+      <div class="step-num">6</div>
+      <div class="step-content">
+        <h4>Napoleon: <em>Napoleon: A Life</em> — Andrew Roberts</h4>
+        <p>Then watch Waterloo (1970). By this point you'll have a complete picture of the Revolutionary era across three continents.</p>
+      </div>
+    </div>
+
+    <div class="path-step">
+      <div class="step-num">7</div>
+      <div class="step-content">
+        <h4>Americas: <em>1491</em> — Charles Mann</h4>
+        <p>This book will completely reframe your understanding of pre-Columbian America. Follow it with Bernal Díaz's Conquest of New Spain for the Spanish side of the story.</p>
+      </div>
+    </div>
+
+    <div class="path-step">
+      <div class="step-num">8</div>
+      <div class="step-content">
+        <h4>Watch: <em>Shogun</em> (FX, 2024)</h4>
+        <p>Ten episodes of television that will give you a complete immersion in Tokugawa Japan — its politics, aesthetics, and the collision with the West. One of the best historical dramas ever made.</p>
+      </div>
+    </div>
+
+    <div class="path-step">
+      <div class="step-num">9</div>
+      <div class="step-content">
+        <h4>Japan: <em>Japan: A History</em> — R.H.P. Mason</h4>
+        <p>Read this after Shogun to give the full arc from Tokugawa isolation through the Meiji transformation to WWII.</p>
+      </div>
+    </div>
+
+    <div class="path-step">
+      <div class="step-num">10</div>
+      <div class="step-content">
+        <h4>Cold War: <em>The Cold War: A World History</em> — Odd Arne Westad</h4>
+        <p>The definitive single-volume account that covers every continent, not just US-Soviet relations. Then watch The Americans (FX) — all six seasons.</p>
+      </div>
+    </div>
+
+    <div class="path-step">
+      <div class="step-num">11</div>
+      <div class="step-content">
+        <h4>America: <em>Are We Rome?</em> — Cullen Murphy</h4>
+        <p>By now you have enough context to read this comparative study and evaluate it critically. You'll find yourself agreeing and disagreeing with specific arguments — which means you're thinking historically.</p>
+      </div>
+    </div>
+
+    <div class="path-step">
+      <div class="step-num">12</div>
+      <div class="step-content">
+        <h4>Egypt & Babylon: <em>The Rise and Fall of Ancient Egypt</em> — Toby Wilkinson</h4>
+        <p>Save this for last. After reading about Rome, the French Revolution, and the Cold War, ancient Egypt will feel surprisingly familiar — the same arguments about succession, legitimacy, and imperial overreach, just 4,000 years earlier.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="theme-callout">
+    <div class="theme-callout-label">The Question to Carry</div>
+    <p>As you read, always ask: <strong>What did they think would last forever?</strong> The Pharaohs built in stone. Rome built in law. The Soviet Union built in ideology. America built in constitutional institutions and economic hegemony. Every civilization mistakes its current arrangements for permanent ones. The study of history is, in part, the study of that mistake — and perhaps the only way to make it a little less catastrophic the next time.</p>
+  </div>
+
+</div>
+</div>
+
+<!-- ══════════════════════════════════════ TRACKER ══════════════════════════════════════ -->
+<div id="section-tracker" class="course-section">
+<div class="container">
+
+  <div class="section-header">
+    <div class="section-numeral">✦</div>
+    <div class="section-header-text">
+      <div class="section-kicker">Your Progress</div>
+      <h2 class="section-title">My History Curriculum Tracker</h2>
+      <p class="section-intro">Check off each item as you complete it. Your progress is saved in your browser and persists between sessions.</p>
+    </div>
+  </div>
+
+  <div id="tracker-stats" style="display:flex; gap:24px; flex-wrap:wrap; margin-bottom:40px;">
+    <div style="background:var(--ink); color:var(--parchment); padding:20px 28px; flex:1; min-width:160px; text-align:center;">
+      <div style="font-family:'DM Mono',monospace; font-size:10px; letter-spacing:0.2em; text-transform:uppercase; color:var(--gold); margin-bottom:8px;">Completed</div>
+      <div id="stat-done" style="font-family:'Playfair Display',serif; font-size:40px; font-weight:700; color:var(--gold);">0</div>
+    </div>
+    <div style="background:var(--warm-white); border:1px solid var(--rule); padding:20px 28px; flex:1; min-width:160px; text-align:center;">
+      <div style="font-family:'DM Mono',monospace; font-size:10px; letter-spacing:0.2em; text-transform:uppercase; color:var(--faded); margin-bottom:8px;">Remaining</div>
+      <div id="stat-left" style="font-family:'Playfair Display',serif; font-size:40px; font-weight:700;">0</div>
+    </div>
+    <div style="background:var(--warm-white); border:1px solid var(--rule); padding:20px 28px; flex:1; min-width:160px; text-align:center;">
+      <div style="font-family:'DM Mono',monospace; font-size:10px; letter-spacing:0.2em; text-transform:uppercase; color:var(--faded); margin-bottom:8px;">Progress</div>
+      <div id="stat-pct" style="font-family:'Playfair Display',serif; font-size:40px; font-weight:700; color:var(--verdigris);">0%</div>
+    </div>
+    <div style="display:flex; align-items:center; padding:0 8px;">
+      <button onclick="clearAll()" style="background:none; border:1px solid var(--rule); color:var(--faded); font-family:'DM Mono',monospace; font-size:10px; letter-spacing:0.12em; text-transform:uppercase; padding:10px 16px; cursor:pointer;">Reset All</button>
+    </div>
+  </div>
+
+  <!-- PROGRESS BAR -->
+  <div style="height:4px; background:var(--aged); border-radius:2px; margin-bottom:48px;">
+    <div id="progress-bar" style="height:4px; background:var(--gold); border-radius:2px; width:0%; transition:width 0.4s ease;"></div>
+  </div>
+
+  <style>
+    .tracker-group { margin-bottom: 48px; }
+    .tracker-group-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 6px;
+      color: var(--ink);
+    }
+    .tracker-group-sub {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--faded);
+      margin-bottom: 16px;
+    }
+    .tracker-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--rule);
+      cursor: pointer;
+      user-select: none;
+      transition: background 0.15s;
+    }
+    .tracker-item:hover { background: var(--warm-white); }
+    .tracker-item.done .tracker-label { text-decoration: line-through; color: var(--faded); }
+    .tracker-check {
+      width: 20px;
+      height: 20px;
+      border: 2px solid var(--rule);
+      border-radius: 2px;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--warm-white);
+      margin-top: 2px;
+      transition: all 0.15s;
+    }
+    .tracker-item.done .tracker-check {
+      background: var(--verdigris);
+      border-color: var(--verdigris);
+    }
+    .tracker-check::after {
+      content: '';
+      display: none;
+      width: 5px;
+      height: 9px;
+      border: 2px solid #fff;
+      border-top: none;
+      border-left: none;
+      transform: rotate(45deg);
+      margin-top: -2px;
+    }
+    .tracker-item.done .tracker-check::after { display: block; }
+    .tracker-label { flex: 1; line-height: 1.5; }
+    .tracker-label-title { font-size: 15px; color: var(--ink); }
+    .tracker-label-meta { font-size: 12.5px; color: var(--faded); margin-top: 2px; }
+    .tracker-type {
+      font-family: 'DM Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 2px 7px;
+      border-radius: 2px;
+      flex-shrink: 0;
+      margin-top: 3px;
+    }
+    .type-book { background: #e8dfc8; color: #6b5a3a; }
+    .type-watch { background: #dce8e4; color: #2d5248; }
+    .type-listen { background: #e8dce8; color: #5a3a5a; }
+    .type-explore { background: #dce4e8; color: #2d4552; }
+    .type-art { background: #e8e4dc; color: #524a2d; }
+  </style>
+
+  <!-- UNIT 1: START HERE -->
+  <div class="tracker-group">
+    <div class="tracker-group-title">The Starting 12 — Read in This Order</div>
+    <div class="tracker-group-sub">From the "Where to Start" reading path</div>
+
+    <div class="tracker-item" onclick="toggle(this)" data-id="start-1">
+      <div class="tracker-check"></div>
+      <div class="tracker-label">
+        <div class="tracker-label-title"><em>The Lessons of History</em> — Will &amp; Ariel Durant</div>
+        <div class="tracker-label-meta">Step 1 — The map before the territory. 100 pages. <a class="free-link" href="https://archive.org/details/isbn_0671413333" target="_blank">Borrow free on Internet Archive</a></div>
+      </div>
+      <span class="tracker-type type-book">Book</span>
+    </div>
+
+    <div class="tracker-item" onclick="toggle(this)" data-id="start-2">
+      <div class="tracker-check"></div>
+      <div class="tracker-label">
+        <div class="tracker-label-title"><em>SPQR</em> — Mary Beard</div>
+        <div class="tracker-label-meta">Step 2 — The best single-volume Roman history</div>
+      </div>
+      <span class="tracker-type type-book">Book</span>
+    </div>
+
+    <div class="tracker-item" onclick="toggle(this)" data-id="start-3">
+      <div class="tracker-check"></div>
+      <div class="tracker-label">
+        <div class="tracker-label-title">HBO's <em>Rome</em> (2005–2007)</div>
+        <div class="tracker-label-meta">Step 3 — Watch while reading Beard</div>
+      </div>
+      <span class="tracker-type type-watch">Watch</span>
+    </div>
+
+    <div class="tracker-item" onclick="toggle(this)" data-id="start-4">
+      <div class="tracker-check"></div>
+      <div class="tracker-label">
+        <div class="tracker-label-title"><em>Citizens</em> — Simon Schama</div>
+        <div class="tracker-label-meta">Step 4 — The French Revolution in full. Pair with Versailles (Netflix)</div>
+      </div>
+      <span class="tracker-type type-book">Book</span>
+    </div>
+
+    <div class="tracker-item" onclick="toggle(this)" data-id="start-5">
+      <div class="tracker-check"></div>
+      <div class="tracker-label">
+        <div class="tracker-label-title"><em>The Black Jacobins</em> — C.L.R. James</div>
+        <div class="tracker-label-meta">Step 5 — Read immediately after Schama. <a class="free-link" href="https://files.libcom.org/files/TheBlackJacobinsCLRJames.pdf" target="_blank">Free PDF</a></div>
+      </div>
+      <span class="tracker-type type-book">Book</span>
+    </div>
+
+    <div class="tracker-item" onclick="toggle(this)" data-id="start-6">
+      <div class="tracker-check"></div>
+      <div class="tracker-label">
+        <div class="tracker-label-title"><em>Napoleon: A Life</em> — Andrew Roberts</div>
+        <div class="tracker-label-meta">Step 6 — Then watch Waterloo (1970)</div>
+      </div>
+      <span class="tracker-type type-book">Book</span>
+    </div>
+
+    <div class="tracker-item" onclick="toggle(this)" data-id="start-7">
+      <div class="tracker-check"></div>
+      <div class="tracker-label">
+        <div class="tracker-label-title"><em>1491</em> — Charles Mann</div>
+        <div class="tracker-label-meta">Step 7 — Paradigm-shifting pre-Columbian Americas</div>
+      </div>
+      <span class="tracker-type type-book">Book</span>
+    </div>
+
+    <div class="tracker-item" onclick="toggle(this)" data-id="start-8">
+      <div class="tracker-check"></div>
+      <div class="tracker-label">
+        <div class="tracker-label-title"><em>Shogun</em> — FX (2024)</div>
+        <div class="tracker-label-meta">Step 8 — 10 episodes. One of the best historical dramas ever made</div>
+      </div>
+      <span class="tracker-type type-watch">Watch</span>
+    </div>
+
+    <div class="tracker-item" onclick="toggle(this)" data-id="start-9">
+      <div class="tracker-check"></div>
+      <div class="tracker-label">
+        <div class="tracker-label-title"><em>Japan: A History</em> — R.H.P. Mason</div>
+        <div class="tracker-label-meta">Step 9 — Full arc from Tokugawa to WWII</div>
+      </div>
+      <span class="tracker-type type-book">Book</span>
+    </div>
+
+    <div class="tracker-item" onclick="toggle(this)" data-id="start-10">
+      <div class="tracker-check"></div>
+      <div class="tracker-label">
+        <div class="tracker-label-title"><em>The Cold War: A World History</em> — Odd Arne Westad</div>
+        <div class="tracker-label-meta">Step 10 — Definitive global account. Then watch The Americans (FX)</div>
+      </div>
+      <span class="tracker-type type-book">Book</span>
+    </div>
+
+    <div class="tracker-item" onclick="toggle(this)" data-id="start-11">
+      <div class="tracker-check"></div>
+      <div class="tracker-label">
+        <div class="tracker-label-title"><em>Are We Rome?</em> — Cullen Murphy</div>
+        <div class="tracker-label-meta">Step 11 — The US-Rome comparison made explicit</div>
+      </div>
+      <span class="tracker-type type-book">Book</span>
+    </div>
+
+    <div class="tracker-item" onclick="toggle(this)" data-id="start-12">
+      <div class="tracker-check"></div>
+      <div class="tracker-label">
+        <div class="tracker-label-title"><em>The Rise and Fall of Ancient Egypt</em> — Toby Wilkinson</div>
+        <div class="tracker-label-meta">Step 12 — Save for last. It will feel surprisingly familiar</div>
+      </div>
+      <span class="tracker-type type-book">Book</span>
+    </div>
+  </div>
+
+  <!-- UNIT: ANCIENT WORLDS -->
+  <div class="tracker-group">
+    <div class="tracker-group-title">Ancient Worlds — Additional Reading</div>
+    <div class="tracker-group-sub">Babylon · Egypt · Rome</div>
+
+    <div class="tracker-item" onclick="toggle(this)" data-id="anc-1">
+      <div class="tracker-check"></div>
+      <div class="tracker-label">
+        <div class="tracker-label-title"><em>The Epic of Gilgamesh</em></div>
+        <div class="tracker-label-meta"><a class="free-link" href="https://archive.org/details/epic-of-gilgamesh" target="_blank">Internet Archive</a> · <a class="free-link" href="https://www.gutenberg.org/ebooks/18897" target="_blank">Project Gutenberg</a></div>
+      </div>
+      <span class="tracker-type type-book">Book · Free</span>
+    </div>
+
+    <div class="tracker-item" onclick="toggle(this)" data-id="anc-2">
+      <div class="tracker-check"></div>
+      <div class="tracker-label">
+        <div class="tracker-label-title">The Code of Hammurabi</div>
+        <div class="tracker-label-meta"><a class="free-link" href="https://avalon.law.yale.edu/ancient/hamframe.asp" target="_blank">Yale Avalon Project — full text</a></div>
+      </div>
+      <span class="tracker-type type-explore">Primary Source · Free</span>
+    </div>
+
+    <div class="tracker-item" onclick="toggle(this)" data-id="anc-3">
+      <div class="tracker-check"></div>
+      <div class="tracker-label">
+        <div class="tracker-label-title"><em>Babylon: Mesopotamia and the Birth of Civilization</em> — Paul Kriwaczek</div>
+        <div class="tracker-label-meta">Accessible narrative history of Babylon</div>
+      </div>
+      <span class="tracker-type type-book">Book</span>
+    </div>
+
+    <div class="tracker-item" onclick="toggle(this)" data-id="anc-4">
+      <div class="tracker-check"></div>
+      <div class="tracker-label">
+        <div class="tracker-label-title">British Museum Mesopotamia Collection</div>
+        <div class="tracker-label-meta"><a class="free-link" href="https://www.britishmuseum.org/collection/galleries/mesopotamia" target="_blank">Browse free online — zoom into cuneiform tablets</a></div>
+      </div>
+      <span class="tracker-type type-explore">Explore · Free</span>
+    </div>
+
+    <div class="tracker-item" onclick="toggle(this)" data-id="anc-5">
+      <div class="tracker-check"></div>
+      <div class="tracker-label">
+        <div class="tracker-label-title"><em>Cleopatra: A Life</em> — Stacy Schiff</div>
+        <div class="tracker-label-meta">Where Egypt meets Rome — Pulitzer Prize winner</div>
+      </div>
+      <span class="tracker-type type-book">Book</span>
+    </div>
+
+    <div class="tracker-item" onclick="toggle(this)" data-id="anc-6">
+      <div class="tracker-check"></div>
+      <div class="tracker-label">
+        <div class="tracker-label-title">Plutarch's <em>Lives of the Noble Greeks and Romans</em></div>
+        <div class="tracker-label-meta">What the Founders actually read. <a class="free-link" href="https://www.gutenberg.org/ebooks/674" target="_blank">Free at Project Gutenberg</a></div>
+      </div>
+      <span class="tracker-type type-book">Book · Free</span>
+    </div>
+
+    <div class="tracker-item" onclick="toggle(this)" data-id="anc-7">
+      <div class="tracker-check"></div>
+      <div class="tracker-label">
+        <div class="tracker-label-title"><em>Meditations</em> — Marcus Aurelius</div>
+        <div class="tracker-label-meta"><a class="free-link" href="https://classics.mit.edu/Antoninus/meditations.1.one.html" target="_blank">MIT Internet Classics Archive</a> · <a class="free-link" href="https://www.gutenberg.org/ebooks/2680" target="_blank">Project Gutenberg</a></div>
+      </div>
+      <span class="tracker-type type-book">Book · Free</span>
+    </div>
+
+    <div class="tracker-item" onclick="toggle(this)" data-id="anc-8">
+      <div class="tracker-check"></div>
+      <div class="tracker-label">
+        <div class="tracker-label-title"><em>Rubicon</em> — Tom Holland</div>
+        <div class="tracker-label-meta">The Republic's fall — gripping narrative history</div>
+      </div>
+      <span class="tracker-type type-book">Book</span>
+    </div>
+
+    <div class="tracker-item" onclick="toggle(this)" data-id="anc-9">
+      <div class="tracker-check"></div>
+      <div class="tracker-label">
+        <div class="tracker-label-title"><em>The Storm Before the Storm</em> — Mike Duncan</div>
+        <div class="tracker-label-meta">The generation before Caesar — by the History of Rome podcaster</div>
+      </div>
+      <span class="tracker-type type-book">Book</span>
+    </div>
+
+    <div class="tracker-item" onclick="toggle(this)" data-id="anc-10">
+      <div class="tracker-check"></div>
+      <div class="tracker-label">
+        <div class="tracker-label-title">HBO's <em>Rome</em> (2005–2007)</div>
+        <div class="tracker-label-meta">Two seasons — visually extraordinary, largely accurate</div>
+      </div>
+      <span class="tracker-type type-watch">Watch</span>
+    </div>
+
+    <div style="background:var(--aged); padding:14px 18px; margin:12px 0 4px; border-left:3px solid var(--gold);">
+      <div style="font-family:'DM Mono',monospace; font-size:10px; letter-spacing:0.15em; text-transform:uppercase; color:var(--rust); margin-bottom:4px;">Podcast Series</div>
+      <div style="font-size:14px; line-height:1.6;">The History of Rome — Mike Duncan · <a class="free-link" href="https://open.spotify.com/show/6wiEd40oPbQ9UK1rSpIy8I" target="_blank">Free on Spotify</a> · 179 episodes total. Check off each block as you finish it — or go straight through if you're the Ken Burns Annual Rewatch type.</div>
+    </div>
+
+    <div class="tracker-item" onclick="toggle(this)" data-id="rome-1">
+      <div class="tracker-check"></div>
+      <div class="tracker-label">
+        <div class="tracker-label-title">Eps 1–3 — The Founding Myth &amp; the Kingdom</div>
+        <div class="tracker-label-meta">Romulus and Remus, the founding legend vs. archaeology. Short episodes, great foundation. (~35 min)</div>
+      </div>
+      <span class="tracker-type type-listen">Podcast</span>
+    </div>
+
+    <div class="tracker-item" onclick="toggle(this)" data-id="rome-2">
+      <div class="tracker-check"></div>
+      <div class="tracker-label">
+        <div class="tracker-label-title">Eps 6–12 — The Early Republic</div>
+        <div class="tracker-label-meta">The Senate, the consulship, patricians vs. plebs. This is the civic structure the Founders were obsessed with. (~2 hrs)</div>
+      </div>
+      <span class="tracker-type type-listen">Podcast</span>
+    </div>
+
+    <div class="tracker-item" onclick="toggle(this)" data-id="rome-3">
+      <div class="tracker-check"></div>
+      <div class="tracker-label">
+        <div class="tracker-label-title">Eps 13–28 — The Middle Republic &amp; Punic Wars</div>
+        <div class="tracker-label-meta">Hannibal crosses the Alps. Rome nearly dies and comes back stronger. The making of a superpower. (~4 hrs)</div>
+      </div>
+      <span class="tracker-type type-listen">Podcast</span>
+    </div>
+
+    <div class="tracker-item" onclick="toggle(this)" data-id="rome-4">
+      <div class="tracker-check"></div>
+      <div class="tracker-label">
+        <div class="tracker-label-title">Eps 29–34 — The Gracchi Through Sulla: The Republic Cracks</div>
+        <div class="tracker-label-meta">The generation Mike Duncan wrote <em>The Storm Before the Storm</em> about. Populists, land reform, the first Roman civil war. Essential. (~1.5 hrs)</div>
+      </div>
+      <span class="tracker-type type-listen">Podcast</span>
+    </div>
+
+    <div class="tracker-item" onclick="toggle(this)" data-id="rome-5">
+      <div class="tracker-check"></div>
+      <div class="tracker-label">
+        <div class="tracker-label-title">Eps 35–44 — Caesar: Rise, Rubicon, Assassination</div>
+        <div class="tracker-label-meta">The most dramatic stretch of the series. Pair with Tom Holland's <em>Rubicon</em>. The Ides of March. (~2.5 hrs)</div>
+      </div>
+      <span class="tracker-type type-listen">Podcast</span>
+    </div>
+
+    <div class="tracker-item" onclick="toggle(this)" data-id="rome-6">
+      <div class="tracker-check"></div>
+      <div class="tracker-label">
+        <div class="tracker-label-title">Eps 45–55 — Augustus &amp; the Birth of the Empire</div>
+        <div class="tracker-label-meta">How a republic becomes an empire while pretending it hasn't. The moment the Founders most feared repeating. (~2.5 hrs)</div>
+      </div>
+      <span class="tracker-type type-listen">Podcast</span>
+    </div>
+
+    <div class="tracker-item" onclick="toggle(this)" data-id="rome-7">
+      <div class="tracker-check"></div>
+      <div class="tracker-label">
+        <div class="tracker-label-title">Eps 56–73 — The Julio-Claudians &amp; the Year of Four Emperors</div>
+        <div class="tracker-label-meta">Tiberius, Caligula, Claudius, Nero. The succession problem in full. 69 CE: four emperors in one year — the system breaking down. (~4 hrs)</div>
+      </div>
+      <span class="tracker-type type-listen">Podcast</span>
+    </div>
+
+    <div class="tracker-item" onclick="toggle(this)" data-id="rome-8">
+      <div class="tracker-check"></div>
+      <div class="tracker-label">
+        <div class="tracker-label-title">Eps 74–76 — The Five Good Emperors &amp; Marcus Aurelius</div>
+        <div class="tracker-label-meta">Rome at its peak. Pair with <em>Meditations</em>. The philosopher-emperor who knew the decline was coming. (~1 hr)</div>
+      </div>
+      <span class="tracker-type type-listen">Podcast</span>
+    </div>
+
+    <div class="tracker-item" onclick="toggle(this)" data-id="rome-9">
+      <div class="tracker-check"></div>
+      <div class="tracker-label">
+        <div class="tracker-label-title">Eps 77–130 — The Crisis of the Third Century &amp; Recovery</div>
+        <div class="tracker-label-meta">50 years, 26 emperors. The empire nearly shatters, then Diocletian reassembles it — but at a cost. (~12 hrs — the deep cut stretch)</div>
+      </div>
+      <span class="tracker-type type-listen">Podcast</span>
+    </div>
+
+    <div class="tracker-item" onclick="toggle(this)" data-id="rome-10">
+      <div class="tracker-check"></div>
+      <div class="tracker-label">
+        <div class="tracker-label-title">Eps 131–158 — Constantine, Christianity &amp; the Divided Empire</div>
+        <div class="tracker-label-meta">Christianity becomes the state religion. The empire splits East and West. Theodosius, Alaric — the Visigoths are at the gates. (~6 hrs)</div>
+      </div>
+      <span class="tracker-type type-listen">Podcast</span>
+    </div>
+
+    <div class="tracker-item" onclick="toggle(this)" data-id="rome-11">
+      <div class="tracker-check"></div>
+      <div class="tracker-label">
+        <div class="tracker-label-title">Eps 159–179 — The Fall of the Western Empire</div>
+        <div class="tracker-label-meta">The payoff. 476 CE: Romulus Augustulus, last emperor of the West, is deposed. What does it feel like when Rome falls? This is the answer. (~5 hrs)</div>
+      </div>
+      <span class="tracker-type type-listen">Podcast</span>
+    </div>
+
+    <div class="tracker-item" onclick="toggle(this)" data-id="anc-12">
+      <div class="tracker-check"></div>
+      <div class="tracker-label">
+        <div class="tracker-label-title">Art: Hokusai's <em>Great Wave</em> — high resolution</div>
+        <div class="tracker-label-meta"><a class="free-link" href="https://www.metmuseum.org/art/collection/search/45434" target="_blank">Full resolution at the Met Museum</a></div>
+      </div>
+      <span class="tracker-type type-art">Art · Free</span>
+    </div>
+  </div>
+
+  <!-- UNIT: REVOLUTIONS -->
+  <div class="tracker-group">
+    <div class="tracker-group-title">Age of Revolutions</div>
+    <div class="tracker-group-sub">America · France · Haiti</div>
+
+    <div class="tracker-item" onclick="toggle(this)" data-id="rev-1">
+      <div class="tracker-check"></div>
+      <div class="tracker-label">
+        <div class="tracker-label-title"><em>The Quartet</em> — Joseph Ellis</div>
+        <div class="tracker-label-meta">How the Constitution actually got made</div>
+      </div>
+      <span class="tracker-type type-book">Book</span>
+    </div>
+
+    <div class="tracker-item" onclick="toggle(this)" data-id="rev-2">
+      <div class="tracker-check"></div>
+      <div class="tracker-label">
+        <div class="tracker-label-title"><em>Founding Brothers</em> — Joseph Ellis</div>
+        <div class="tracker-label-meta">The founders as political operators</div>
+      </div>
+      <span class="tracker-type type-book">Book</span>
+    </div>
+
+    <div class="tracker-item" onclick="toggle(this)" data-id="rev-3">
+      <div class="tracker-check"></div>
+      <div class="tracker-label">
+        <div class="tracker-label-title"><em>John Adams</em> — HBO (2008)</div>
+        <div class="tracker-label-meta">Paul Giamatti — superb</div>
+      </div>
+      <span class="tracker-type type-watch">Watch</span>
+    </div>
+
+    <div class="tracker-item" onclick="toggle(this)" data-id="rev-4">
+      <div class="tracker-check"></div>
+      <div class="tracker-label">
+        <div class="tracker-label-title"><em>Citizens</em> — Simon Schama</div>
+        <div class="tracker-label-meta">The richest single-volume account of the French Revolution</div>
+      </div>
+      <span class="tracker-type type-book">Book</span>
+    </div>
+
+    <div class="tracker-item" onclick="toggle(this)" data-id="rev-5">
+      <div class="tracker-check"></div>
+      <div class="tracker-label">
+        <div class="tracker-label-title"><em>A Place of Greater Safety</em> — Hilary Mantel</div>
+        <div class="tracker-label-meta">Fiction, but astounding — the Revolution as novel</div>
+      </div>
+      <span class="tracker-type type-book">Book</span>
+    </div>
+
+    <div class="tracker-item" onclick="toggle(this)" data-id="rev-6">
+      <div class="tracker-check"></div>
+      <div class="tracker-label">
+        <div class="tracker-label-title"><em>The Black Jacobins</em> — C.L.R. James</div>
+        <div class="tracker-label-meta">The Haitian Revolution — the essential read. <a class="free-link" href="https://files.libcom.org/files/TheBlackJacobinsCLRJames.pdf" target="_blank">Free PDF</a></div>
+      </div>
+      <span class="tracker-type type-book">Book · Free</span>
+    </div>
+
+    <div class="tracker-item" onclick="toggle(this)" data-id="rev-7">
+      <div class="tracker-check"></div>
+      <div class="tracker-label">
+        <div class="tracker-label-title">Revolutions Podcast — Mike Duncan</div>
+        <div class="tracker-label-meta"><a class="free-link" href="https://revolutionspodcast.libsyn.com/" target="_blank">Free — English, American, French, Haitian in depth</a></div>
+      </div>
+      <span class="tracker-type type-listen">Podcast · Free</span>
+    </div>
+
+    <div class="tracker-item" onclick="toggle(this)" data-id="rev-8">
+      <div class="tracker-check"></div>
+      <div class="tracker-label">
+        <div class="tracker-label-title">Art: David's <em>Death of Marat</em> + Delacroix's <em>Liberty Leading the People</em></div>
+        <div class="tracker-label-meta"><a class="free-link" href="https://artsandculture.google.com/story/the-death-of-marat-royal-museums-of-fine-arts-of-belgium/1AUhJJJ6HrHtJg" target="_blank">Google Arts & Culture — high resolution</a></div>
+      </div>
+      <span class="tracker-type type-art">Art · Free</span>
+    </div>
+
+    <div class="tracker-item" onclick="toggle(this)" data-id="rev-9">
+      <div class="tracker-check"></div>
+      <div class="tracker-label">
+        <div class="tracker-label-title">Jacob Lawrence's <em>Toussaint L'Ouverture</em> Series</div>
+        <div class="tracker-label-meta"><a class="free-link" href="https://americanart.si.edu/artist/jacob-lawrence-2943" target="_blank">Smithsonian American Art Museum — free online</a></div>
+      </div>
+      <span class="tracker-type type-art">Art · Free</span>
+    </div>
+  </div>
+
+  <!-- UNIT: EMPIRE -->
+  <div class="tracker-group">
+    <div class="tracker-group-title">Empire &amp; Collapse</div>
+    <div class="tracker-group-sub">Louis XIV · Napoleon · Rome's Fall</div>
+
+    <div class="tracker-item" onclick="toggle(this)" data-id="emp-1">
+      <div class="tracker-check"></div>
+      <div class="tracker-label">
+        <div class="tracker-label-title"><em>The Sun King</em> — Nancy Mitford</div>
+        <div class="tracker-label-meta">Elegant, witty biography of Louis XIV</div>
+      </div>
+      <span class="tracker-type type-book">Book</span>
+    </div>
+
+    <div class="tracker-item" onclick="toggle(this)" data-id="emp-2">
+      <div class="tracker-check"></div>
+      <div class="tracker-label">
+        <div class="tracker-label-title"><em>Versailles</em> — Canal+/Netflix (3 seasons)</div>
+        <div class="tracker-label-meta">Lush and politically sharp</div>
+      </div>
+      <span class="tracker-type type-watch">Watch</span>
+    </div>
+
+    <div class="tracker-item" onclick="toggle(this)" data-id="emp-3">
+      <div class="tracker-check"></div>
+      <div class="tracker-label">
+        <div class="tracker-label-title"><em>Napoleon: A Life</em> — Andrew Roberts</div>
+        <div class="tracker-label-meta">Current gold standard biography</div>
+      </div>
+      <span class="tracker-type type-book">Book</span>
+    </div>
+
+    <div class="tracker-item" onclick="toggle(this)" data-id="emp-4">
+      <div class="tracker-check"></div>
+      <div class="tracker-label">
+        <div class="tracker-label-title"><em>Waterloo</em> (1970 film)</div>
+        <div class="tracker-label-meta">Rod Steiger — the best battle film on Napoleon</div>
+      </div>
+      <span class="tracker-type type-watch">Watch</span>
+    </div>
+
+    <div class="tracker-item" onclick="toggle(this)" data-id="emp-5">
+      <div class="tracker-check"></div>
+      <div class="tracker-label">
+        <div class="tracker-label-title">Art: David's <em>Napoleon Crossing the Alps</em></div>
+        <div class="tracker-label-meta">Pure myth-making — he actually crossed on a mule</div>
+      </div>
+      <span class="tracker-type type-art">Art</span>
+    </div>
+
+    <div class="tracker-item" onclick="toggle(this)" data-id="emp-6">
+      <div class="tracker-check"></div>
+      <div class="tracker-label">
+        <div class="tracker-label-title">Art: Goya's <em>The Third of May</em></div>
+        <div class="tracker-label-meta">The other side of Napoleonic conquest</div>
+      </div>
+      <span class="tracker-type type-art">Art</span>
+    </div>
+
+    <div class="tracker-item" onclick="toggle(this)" data-id="emp-7">
+      <div class="tracker-check"></div>
+      <div class="tracker-label">
+        <div class="tracker-label-title"><em>The Fate of Rome</em> — Kyle Harper</div>
+        <div class="tracker-label-meta">Climate, disease, and collapse — cycles of history</div>
+      </div>
+      <span class="tracker-type type-book">Book</span>
+    </div>
+  </div>
+
+  <!-- UNIT: JAPAN & LATIN AMERICA -->
+  <div class="tracker-group">
+    <div class="tracker-group-title">Japan &amp; Latin America</div>
+    <div class="tracker-group-sub">Aztec · Inca · Tokugawa · Meiji</div>
+
+    <div class="tracker-item" onclick="toggle(this)" data-id="jla-1">
+      <div class="tracker-check"></div>
+      <div class="tracker-label">
+        <div class="tracker-label-title"><em>Conquest of New Spain</em> — Bernal Díaz</div>
+        <div class="tracker-label-meta">Written by a soldier who was there. <a class="free-link" href="https://archive.org/details/truehistoryconqu00diaz" target="_blank">Free on Internet Archive</a></div>
+      </div>
+      <span class="tracker-type type-book">Book · Free</span>
+    </div>
+
+    <div class="tracker-item" onclick="toggle(this)" data-id="jla-2">
+      <div class="tracker-check"></div>
+      <div class="tracker-label">
+        <div class="tracker-label-title"><em>1491</em> — Charles Mann</div>
+        <div class="tracker-label-meta">Pre-Columbian Americas — paradigm-shifting</div>
+      </div>
+      <span class="tracker-type type-book">Book</span>
+    </div>
+
+    <div class="tracker-item" onclick="toggle(this)" data-id="jla-3">
+      <div class="tracker-check"></div>
+      <div class="tracker-label">
+        <div class="tracker-label-title"><em>When Montezuma Met Cortés</em> — Matthew Restall</div>
+        <div class="tracker-label-meta">Revisionist, brilliant — overturns the standard narrative</div>
+      </div>
+      <span class="tracker-type type-book">Book</span>
+    </div>
+
+    <div class="tracker-item" onclick="toggle(this)" data-id="jla-4">
+      <div class="tracker-check"></div>
+      <div class="tracker-label">
+        <div class="tracker-label-title">Diego Rivera's Murals — National Palace, Mexico City</div>
+        <div class="tracker-label-meta"><a class="free-link" href="https://artsandculture.google.com/streetview/national-palace-mexico/6wF6GEBsFb88Kg" target="_blank">Google Arts & Culture virtual tour — free</a></div>
+      </div>
+      <span class="tracker-type type-art">Art · Free</span>
+    </div>
+
+    <div class="tracker-item" onclick="toggle(this)" data-id="jla-5">
+      <div class="tracker-check"></div>
+      <div class="tracker-label">
+        <div class="tracker-label-title"><em>Shogun</em> — FX/Hulu (2024)</div>
+        <div class="tracker-label-meta">Historically extraordinary — 10 episodes</div>
+      </div>
+      <span class="tracker-type type-watch">Watch</span>
+    </div>
+
+    <div class="tracker-item" onclick="toggle(this)" data-id="jla-6">
+      <div class="tracker-check"></div>
+      <div class="tracker-label">
+        <div class="tracker-label-title"><em>Musashi</em> — Eiji Yoshikawa</div>
+        <div class="tracker-label-meta">Japan's Iliad — the great samurai novel. <a class="free-link" href="https://openlibrary.org/works/OL2691440W/Musashi" target="_blank">Check Open Library</a></div>
+      </div>
+      <span class="tracker-type type-book">Book</span>
+    </div>
+
+    <div class="tracker-item" onclick="toggle(this)" data-id="jla-7">
+      <div class="tracker-check"></div>
+      <div class="tracker-label">
+        <div class="tracker-label-title">Hokusai's <em>Great Wave</em></div>
+        <div class="tracker-label-meta"><a class="free-link" href="https://www.metmuseum.org/art/collection/search/45434" target="_blank">Full resolution at the Met Museum</a></div>
+      </div>
+      <span class="tracker-type type-art">Art · Free</span>
+    </div>
+
+    <div class="tracker-item" onclick="toggle(this)" data-id="jla-8">
+      <div class="tracker-check"></div>
+      <div class="tracker-label">
+        <div class="tracker-label-title">Hiroshige's <em>53 Stations of the Tokaido</em></div>
+        <div class="tracker-label-meta"><a class="free-link" href="https://www.loc.gov/item/2002699696/" target="_blank">Full series — Library of Congress</a></div>
+      </div>
+      <span class="tracker-type type-art">Art · Free</span>
+    </div>
+  </div>
+
+  <!-- UNIT: COLD WAR -->
+  <div class="tracker-group">
+    <div class="tracker-group-title">The Cold War</div>
+    <div class="tracker-group-sub">1945 – 1991</div>
+
+    <div class="tracker-item" onclick="toggle(this)" data-id="cw-1">
+      <div class="tracker-check"></div>
+      <div class="tracker-label">
+        <div class="tracker-label-title"><em>The Cold War: A World History</em> — Odd Arne Westad</div>
+        <div class="tracker-label-meta">The definitive global account — covers every continent</div>
+      </div>
+      <span class="tracker-type type-book">Book</span>
+    </div>
+
+    <div class="tracker-item" onclick="toggle(this)" data-id="cw-2">
+      <div class="tracker-check"></div>
+      <div class="tracker-label">
+        <div class="tracker-label-title"><em>One Minute to Midnight</em> — Michael Dobbs</div>
+        <div class="tracker-label-meta">Cuban Missile Crisis, day by day — reads like a thriller</div>
+      </div>
+      <span class="tracker-type type-book">Book</span>
+    </div>
+
+    <div class="tracker-item" onclick="toggle(this)" data-id="cw-3">
+      <div class="tracker-check"></div>
+      <div class="tracker-label">
+        <div class="tracker-label-title"><em>The Spy and the Traitor</em> — Ben Macintyre</div>
+        <div class="tracker-label-meta">Reads like a thriller — true Cold War espionage</div>
+      </div>
+      <span class="tracker-type type-book">Book</span>
+    </div>
+
+    <div class="tracker-item" onclick="toggle(this)" data-id="cw-4">
+      <div class="tracker-check"></div>
+      <div class="tracker-label">
+        <div class="tracker-label-title"><em>The Americans</em> — FX (2013–2018)</div>
+        <div class="tracker-label-meta">The best Cold War drama ever made — 6 seasons</div>
+      </div>
+      <span class="tracker-type type-watch">Watch</span>
+    </div>
+
+    <div class="tracker-item" onclick="toggle(this)" data-id="cw-5">
+      <div class="tracker-check"></div>
+      <div class="tracker-label">
+        <div class="tracker-label-title"><em>The Cold War</em> — CNN Documentary (1998)</div>
+        <div class="tracker-label-meta">24-episode definitive series</div>
+      </div>
+      <span class="tracker-type type-watch">Watch</span>
+    </div>
+
+    <div class="tracker-item" onclick="toggle(this)" data-id="cw-6">
+      <div class="tracker-check"></div>
+      <div class="tracker-label">
+        <div class="tracker-label-title"><em>Oppenheimer</em> (2023)</div>
+        <div class="tracker-label-meta">The bomb that made the Cold War possible</div>
+      </div>
+      <span class="tracker-type type-watch">Watch</span>
+    </div>
+
+    <div class="tracker-item" onclick="toggle(this)" data-id="cw-7">
+      <div class="tracker-check"></div>
+      <div class="tracker-label">
+        <div class="tracker-label-title">Ken Burns' <em>Baseball</em> — PBS (Episodes 6–10)</div>
+        <div class="tracker-label-meta"><a class="free-link" href="https://www.pbs.org/kenburns/baseball/" target="_blank">Free on PBS.org</a> — Cold War era through desegregation</div>
+      </div>
+      <span class="tracker-type type-watch">Watch · Free</span>
+    </div>
+  </div>
+
+  <!-- UNIT: CYCLES & BIG PICTURE -->
+  <div class="tracker-group">
+    <div class="tracker-group-title">The Big Picture — Cycles &amp; Patterns</div>
+    <div class="tracker-group-sub">Books that teach history's shape, not just its facts</div>
+
+    <div class="tracker-item" onclick="toggle(this)" data-id="big-1">
+      <div class="tracker-check"></div>
+      <div class="tracker-label">
+        <div class="tracker-label-title"><em>Guns, Germs, and Steel</em> — Jared Diamond</div>
+        <div class="tracker-label-meta">Why some civilizations dominated others. <a class="free-link" href="https://archive.org/details/fp_Jared_Diamond-Guns_Germs_and_Steel" target="_blank">Internet Archive</a></div>
+      </div>
+      <span class="tracker-type type-book">Book · Free</span>
+    </div>
+
+    <div class="tracker-item" onclick="toggle(this)" data-id="big-2">
+      <div class="tracker-check"></div>
+      <div class="tracker-label">
+        <div class="tracker-label-title"><em>Are We Rome?</em> — Cullen Murphy</div>
+        <div class="tracker-label-meta">The US-Rome comparison made explicit</div>
+      </div>
+      <span class="tracker-type type-book">Book</span>
+    </div>
+
+    <div class="tracker-item" onclick="toggle(this)" data-id="big-3">
+      <div class="tracker-check"></div>
+      <div class="tracker-label">
+        <div class="tracker-label-title"><em>The Rise and Fall of the Great Powers</em> — Paul Kennedy</div>
+        <div class="tracker-label-meta">Economic cycles of power across 500 years</div>
+      </div>
+      <span class="tracker-type type-book">Book</span>
+    </div>
+
+    <div class="tracker-item" onclick="toggle(this)" data-id="big-4">
+      <div class="tracker-check"></div>
+      <div class="tracker-label">
+        <div class="tracker-label-title">Fall of Civilizations Podcast</div>
+        <div class="tracker-label-meta"><a class="free-link" href="https://fallofcivilizationspodcast.com/" target="_blank">Free — each episode one collapse</a> · also on <a class="free-link" href="https://www.youtube.com/@FallofCivilizations" target="_blank">YouTube</a></div>
+      </div>
+      <span class="tracker-type type-listen">Podcast · Free</span>
+    </div>
+
+    <div class="tracker-item" onclick="toggle(this)" data-id="big-5">
+      <div class="tracker-check"></div>
+      <div class="tracker-label">
+        <div class="tracker-label-title">Hardcore History — Dan Carlin</div>
+        <div class="tracker-label-meta"><a class="free-link" href="https://www.dancarlin.com/hardcore-history-series/" target="_blank">Recent episodes free</a> — "Death Throes of the Republic" recommended first</div>
+      </div>
+      <span class="tracker-type type-listen">Podcast</span>
+    </div>
+
+    <div class="tracker-item" onclick="toggle(this)" data-id="big-6">
+      <div class="tracker-check"></div>
+      <div class="tracker-label">
+        <div class="tracker-label-title">American History Tellers — Wondery</div>
+        <div class="tracker-label-meta"><a class="free-link" href="https://wondery.com/shows/american-history-tellers/" target="_blank">Free — narrative US history</a></div>
+      </div>
+      <span class="tracker-type type-listen">Podcast · Free</span>
+    </div>
+  </div>
+
+  <div style="text-align:center; padding:32px 0; color:var(--faded); font-family:'DM Mono',monospace; font-size:11px; letter-spacing:0.15em;">
+    YOUR PROGRESS IS SAVED IN THIS BROWSER
+  </div>
+
+</div>
+</div>
+
+<footer>
+  <p>The Long Arc &nbsp;·&nbsp; A Curated World History Curriculum &nbsp;·&nbsp; <span>Built for a curious mind</span></p>
+</footer>
+
+<script>
+  // ── NAV ──
+  function showSection(id) {
+    document.querySelectorAll('.course-section').forEach(s => s.classList.remove('visible'));
+    document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+    const target = document.getElementById('section-' + id);
+    if (target) target.classList.add('visible');
+    const btn = [...document.querySelectorAll('.nav-btn')].find(b => b.getAttribute('onclick').includes("'" + id + "'"));
+    if (btn) btn.classList.add('active');
+    window.scrollTo({ top: document.querySelector('.nav-strip').offsetTop - 1, behavior: 'smooth' });
+    if (id === 'tracker') updateStats();
+  }
+
+  // ── TRACKER ──
+  const STORAGE_KEY = 'longArcProgress';
+
+  function loadDone() {
+    try { return JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}'); } catch(e) { return {}; }
+  }
+
+  function saveDone(obj) {
+    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(obj)); } catch(e) {}
+  }
+
+  function toggle(el) {
+    const id = el.dataset.id;
+    const done = loadDone();
+    if (done[id]) { delete done[id]; el.classList.remove('done'); }
+    else { done[id] = true; el.classList.add('done'); }
+    saveDone(done);
+    updateStats();
+  }
+
+  function updateStats() {
+    const done = loadDone();
+    const all = document.querySelectorAll('.tracker-item');
+    const total = all.length;
+    const count = Object.keys(done).length;
+    document.getElementById('stat-done').textContent = count;
+    document.getElementById('stat-left').textContent = Math.max(0, total - count);
+    document.getElementById('stat-pct').textContent = total ? Math.round(count / total * 100) + '%' : '0%';
+    document.getElementById('progress-bar').style.width = total ? (count / total * 100) + '%' : '0%';
+  }
+
+  function clearAll() {
+    if (!confirm('Reset all progress? This cannot be undone.')) return;
+    saveDone({});
+    document.querySelectorAll('.tracker-item').forEach(el => el.classList.remove('done'));
+    updateStats();
+  }
+
+  function initTracker() {
+    const done = loadDone();
+    document.querySelectorAll('.tracker-item').forEach(el => {
+      if (done[el.dataset.id]) el.classList.add('done');
+    });
+    updateStats();
+  }
+
+  initTracker();
+</script>
+
+</body>
+</html>
